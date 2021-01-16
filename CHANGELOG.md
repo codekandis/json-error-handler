@@ -5,7 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [keep a changelog][xtlink-keep-a-changelog]
 and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioning].
 
-## 1.0.0 - 2019-08-11
+## [2.0.0] - 2021-01-16
+
+### Updated
+
+* composer package dependencies
+    * removed
+        * `sensiolabs/security-checker`
+        * `phpunit/phpunit`
+        * `codekandis/code-message-interpreter`
+    * updated
+        * `php` [^7.4]
+    * added
+        * `codekandis/phpunit` [^2]
+        * `codekandis/constants-classes-translator` [^1]
+* refactored `JsonErrorCodesInterpreter` to `JsonErrorCodesTranslator`
+
+### Added
+
+* `PHPUnit` tests for the `Base64DecoderErrorCodesTranslator`
+
+[2.0.0]: https://github.com/codekandis/json-error-handler/compare/1.0.0..2.0.0
+
+---
+## [1.0.0] - 2019-08-11
 
 ### Added
 
@@ -15,6 +38,8 @@ and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioni
 * `PHPUnit` tests
 * `README.md`
 * `CHANGELOG.md`
+
+[1.0.0]: https://github.com/codekandis/json-error-handler/tree/1.0.0
 
 
 
