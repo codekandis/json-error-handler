@@ -7,7 +7,6 @@ use const E_ALL;
 
 /**
  * Represents the bootstrap script of the tests.
- *
  * @package codekandis/json-error-handler
  * @author  Christian Ramelow <info@codekandis.net>
  */
