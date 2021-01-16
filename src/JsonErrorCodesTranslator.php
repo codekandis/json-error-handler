@@ -1,14 +1,14 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\JsonErrorHandler;
 
-use CodeKandis\CodeMessageInterpreter\CodeMessageInterpreter;
+use CodeKandis\ConstantsClassesTranslator\ConstantsClassesTranslator;
 
 /**
- * Represents a JSON error codes interpreter.
+ * Represents a JSON error codes translator.
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
-class JsonErrorCodesInterpreter extends CodeMessageInterpreter
+class JsonErrorCodesTranslator extends ConstantsClassesTranslator
 {
 	/**
 	 * Constructor method.
