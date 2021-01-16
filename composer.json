@@ -26,14 +26,13 @@
 		"source": "https://github.com/codekandis/json-error-handler/tree/master"
 	},
 	"require": {
-		"php": "^7.3",
+		"php": "^7.4",
 		"codekandis/phlags": "^2",
-		"codekandis/code-message-interpreter": "^1"
+		"codekandis/constants-classes-translator": "^1"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
-		"sensiolabs/security-checker": "^6",
-		"phpunit/phpunit": "^8"
+		"codekandis/phpunit": "^2"
 	},
 	"autoload": {
 		"psr-4": {
@@ -51,7 +50,6 @@
 	},
 	"scripts": {
 		"post-update-cmd": [
-			"vendor/bin/security-checker security:check composer.lock"
 		]
 	}
 }
