@@ -19,8 +19,8 @@ class JsonErrorHandler implements JsonErrorHandlerInterface
 		$errorCode = json_last_error();
 		if ( JsonErrorCodes::NONE !== $errorCode )
 		{
-			$errorMessage = ( new JsonErrorCodesInterpreter() )
-				->interpret( $errorCode );
+			$errorMessage = ( new JsonErrorCodesTranslator() )
+				->translate( $errorCode );
 			throw new JsonException( $errorMessage, $errorCode );
 		}
 	}
