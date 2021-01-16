@@ -33,7 +33,7 @@ The error codes in [`JsonErrorCodes`][srclink-json-error-codes] are equal to [PH
 
 
 
-[xtlink-version-badge]: https://img.shields.io/badge/version-development-blue.svg
+[xtlink-version-badge]: https://img.shields.io/badge/version-2.0.0-blue.svg
 [xtlink-license-badge]: https://img.shields.io/badge/license-MIT-yellow.svg
 [xtlink-php-version-badge]: https://img.shields.io/badge/php-%3E%3D%207.3-8892BF.svg
 [xtlink-code-coverage-badge]: https://img.shields.io/badge/coverage-100%25-green.svg
