@@ -8,7 +8,7 @@
 		"error",
 		"handler"
 	],
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"prefer-stable": true,
 	"license": "MIT",
 	"authors": [
@@ -27,7 +27,7 @@
 	},
 	"require": {
 		"php": "^7.4",
-		"codekandis/phlags": "^2",
+		"codekandis/phlags": "^3",
 		"codekandis/constants-classes-translator": "^1"
 	},
 	"require-dev": {
