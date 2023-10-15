@@ -1,6 +1,7 @@
 {
 	"name": "codekandis/json-error-handler",
-	"description": "This library to handles JSON errors in an object oriented way.",
+	"description": "`codekandis/json-error-handler` is a library to handle JSON errors in an object oriented way.",
+	"version": "dev-development",
 	"keywords": [
 		"php",
 		"json error handler",
@@ -26,13 +27,15 @@
 		"source": "https://github.com/codekandis/json-error-handler/tree/master"
 	},
 	"require": {
-		"php": "^7.4",
-		"codekandis/phlags": "^3",
-		"codekandis/constants-classes-translator": "^1"
+		"php": ">=8.3",
+		"ext-json": "*",
+		"codekandis/constants-classes-translator": "^2.0.0",
+		"codekandis/types": "^1.0.0"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
-		"codekandis/phpunit": "^3"
+		"codekandis/phpunit": "^5.0.0",
+		"rector/rector": "^1.0.5"
 	},
 	"autoload": {
 		"psr-4": {
@@ -43,13 +46,12 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
+			"CodeKandis\\JsonErrorHandler\\Build\\": [
+				"build/"
+			],
 			"CodeKandis\\JsonErrorHandler\\Tests\\": [
 				"tests/"
 			]
 		}
-	},
-	"scripts": {
-		"post-update-cmd": [
-		]
 	}
 }
