@@ -2,67 +2,64 @@
 namespace CodeKandis\JsonErrorHandler\Tests\UnitTests;
 
 use CodeKandis\JsonErrorHandler\JsonErrorHandlerInterface;
-use CodeKandis\JsonErrorHandler\Tests\DataProviders\UnitTests\JsonErrorHandlerInterfaceTest\JsonErrorHandlersWithInvalidValuesAndExpectedExceptionClassNamesExceptionCodesAndExceptionMessagesDataProvider;
-use CodeKandis\JsonErrorHandler\Tests\DataProviders\UnitTests\JsonErrorHandlerInterfaceTest\JsonErrorHandlersWithValidJsonStringsDataProvider;
-use Iterator;
-use PHPUnit\Framework\TestCase;
+use CodeKandis\JsonErrorHandler\JsonExceptionInterface;
+use CodeKandis\JsonErrorHandler\Tests\DataProviders\UnitTests\JsonErrorHandlerInterfaceTest\JsonErrorHandlersWithInvalidJsonStringExpectedThrowableClassNameExpectedThrowableCodeAndExpectedThrowableMessageDataProvider;
+use CodeKandis\JsonErrorHandler\Tests\DataProviders\UnitTests\JsonErrorHandlerInterfaceTest\JsonErrorHandlersWithValidJsonStringDataProvider;
+use CodeKandis\PhpUnit\TestCase;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use Throwable;
 use function json_decode;
 
 /**
- * Represents the test case to test objects against the `JsonErrorHandlerInterface`.
+ * Represents the test case of `CodeKandis\JsonErrorHandler\JsonErrorHandlerInterface`.
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
 class JsonErrorHandlerInterfaceTest extends TestCase
 {
 	/**
-	 * Provides JSON error handlers with valid JSON strings.
-	 * @return Iterator JSON error handlers with valid JSON strings.
+	 * Tests if the method `JsonErrorHandlerInterface::handle()` throws an `CodeKandis\JsonErrorHandler\JsonExceptionInterface` if an JSON error occurres.
+	 * @param JsonErrorHandlerInterface $jsonErrorHandler The JSON error handler to test.
+	 * @param string $invalidJsonString The invalid JSON string to decode.
+	 * @param string $expectedThrowableClassName The class name of the expected throwable.
+	 * @param int $expectedThrowableCode The code of the expected throwable.
+	 * @param string $expectedThrowableMessage The message of the expected throwable.
 	 */
-	public function jsonErrorHandlersWithValidJsonStringsDataProvider(): Iterator
+	#[DataProviderExternal( JsonErrorHandlersWithInvalidJsonStringExpectedThrowableClassNameExpectedThrowableCodeAndExpectedThrowableMessageDataProvider::class, 'provideData' )]
+	public function testIfMethodHandleThrowsJsonExceptionInterfaceOnJsonError( JsonErrorHandlerInterface $jsonErrorHandler, string $invalidJsonString, string $expectedThrowableClassName, int $expectedThrowableCode, string $expectedThrowableMessage ): void
 	{
-		return new JsonErrorHandlersWithValidJsonStringsDataProvider();
+		try
+		{
+			json_decode( $invalidJsonString );
+			$jsonErrorHandler->handle();
+		}
+		catch ( Throwable $throwable )
+		{
+			static::assertInstanceOf( JsonExceptionInterface::class, $throwable );
+			static::assertInstanceOf( $expectedThrowableClassName, $throwable );
+			static::assertSame(
+				$expectedThrowableCode,
+				$throwable->getCode()
+			);
+			static::assertSame(
+				$expectedThrowableMessage,
+				$throwable->getMessage()
+			);
+		}
 	}
 
 	/**
-	 * Tests if `JsonErrorHandlerInterface::handle()` executes and returns void.
+	 * Tests if the method `JsonErrorHandlerInterface::handle()` returns void on no JSON error.
 	 * @param JsonErrorHandlerInterface $jsonErrorHandler The JSON error handler to test.
-	 * @param string $validJsonString The valid JSON string to decode.
-	 * @dataProvider jsonErrorHandlersWithValidJsonStringsDataProvider
+	 * @param string $validJsonString The valid JSON string to pass.
 	 */
-	public function testIfMethodHandleExecutesAndReturnsVoid( JsonErrorHandlerInterface $jsonErrorHandler, string $validJsonString ): void
+	#[DataProviderExternal( JsonErrorHandlersWithValidJsonStringDataProvider::class, 'provideData' )]
+	#[DoesNotPerformAssertions]
+	public function testsIfMethodHandleReturnsVoidOnNoJsonError( JsonErrorHandlerInterface $jsonErrorHandler, string $validJsonString ): void
 	{
 		json_decode( $validJsonString );
-		$resultedReturnValue = $jsonErrorHandler->handle();
-
-		static::assertNull( $resultedReturnValue );
-	}
-
-	/**
-	 * Provides JSON error handlers with invalid values, expected exceptions, exception codes and exception messages.
-	 * @return Iterator JSON error handlers with invalid values, expected exceptions, exception codes and exception messages.
-	 */
-	public function jsonErrorHandlersWithInvalidValuesAndExpectedExceptionClassNamesExceptionCodesAndExceptionMessagesDataProvider(): Iterator
-	{
-		return new JsonErrorHandlersWithInvalidValuesAndExpectedExceptionClassNamesExceptionCodesAndExceptionMessagesDataProvider();
-	}
-
-	/**
-	 * Tests if `JsonErrorHandler::handle()` throws an exception while an JSON error occurred.
-	 * @param JsonErrorHandlerInterface $jsonErrorHandler The JSON error handler to test.
-	 * @param string $invalidValue The invalid value to decode.
-	 * @param string $expectedExceptionClassName The class name of the expected exception.
-	 * @param int $expectedExceptionCode The exception code of the expected exception.
-	 * @param string $expectedExceptionMessage The exception message of the expected exception.
-	 * @dataProvider jsonErrorHandlersWithInvalidValuesAndExpectedExceptionClassNamesExceptionCodesAndExceptionMessagesDataProvider
-	 */
-	public function testIfMethodHandleThrowsExceptionOnJsonError( JsonErrorHandlerInterface $jsonErrorHandler, string $invalidValue, string $expectedExceptionClassName, int $expectedExceptionCode, string $expectedExceptionMessage ): void
-	{
-		$this->expectException( $expectedExceptionClassName );
-		$this->expectExceptionCode( $expectedExceptionCode );
-		$this->expectExceptionMessage( $expectedExceptionMessage );
-
-		json_decode( $invalidValue );
+		$this->expectNotToPerformAssertions();
 		$jsonErrorHandler->handle();
 	}
 }
