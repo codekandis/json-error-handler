@@ -6,14 +6,14 @@ use Override;
 use function json_last_error;
 
 /**
- * Represents a JSON error handler.
+ * Represents a `JSON` error handler.
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
 class JsonErrorHandler extends BaseObject implements JsonErrorHandlerInterface
 {
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	#[Override]
 	public function handle(): void

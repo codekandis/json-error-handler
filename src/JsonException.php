@@ -5,7 +5,7 @@ use JsonException as OriginJsonException;
 use Override;
 
 /**
- * Represents an exception if a JSON error occured.
+ * Represents an exception if a `JSON` error occured.
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
