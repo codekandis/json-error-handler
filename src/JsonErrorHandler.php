@@ -12,7 +12,7 @@ use function json_last_error;
 class JsonErrorHandler implements JsonErrorHandlerInterface
 {
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	#[Override]
 	public function handle(): void
