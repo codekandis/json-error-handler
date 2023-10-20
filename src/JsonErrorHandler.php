@@ -1,7 +1,6 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\JsonErrorHandler;
 
-use JsonException;
 use function json_last_error;
 
 /**
@@ -21,7 +20,8 @@ class JsonErrorHandler implements JsonErrorHandlerInterface
 		{
 			$errorMessage = ( new JsonErrorCodesTranslator() )
 				->translate( $errorCode );
-			throw new JsonException( $errorMessage, $errorCode );
+
+			throw JsonException::with_errorCodeAndErrorMessage( $errorCode, $errorMessage );
 		}
 	}
 }
