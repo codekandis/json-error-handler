@@ -1,7 +1,7 @@
 {
 	"name": "codekandis/json-error-handler",
 	"description": "`codekandis/json-error-handler` is a library to handle JSON errors in an object oriented way.",
-	"version": "dev-development",
+	"version": "3.0.0",
 	"keywords": [
 		"php",
 		"json error handler",
