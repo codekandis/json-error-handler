@@ -2,6 +2,7 @@
 namespace CodeKandis\JsonErrorHandler;
 
 use JsonException as JsonExceptionOrigin;
+use Override;
 
 /**
  * Represents an exception if a JSON error occured.
@@ -13,6 +14,7 @@ class JsonException extends JsonExceptionOrigin implements JsonExceptionInterfac
 	/**
 	 * @inheritDoc
 	 */
+	#[Override]
 	public static function with_errorCodeAndErrorMessage( int $errorCode, string $errorMessage ): static
 	{
 		return new static( $errorMessage, $errorCode );
