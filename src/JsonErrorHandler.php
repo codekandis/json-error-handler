@@ -1,6 +1,7 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\JsonErrorHandler;
 
+use Override;
 use function json_last_error;
 
 /**
@@ -13,6 +14,7 @@ class JsonErrorHandler implements JsonErrorHandlerInterface
 	/**
 	 * {@inheritDoc}
 	 */
+	#[Override]
 	public function handle(): void
 	{
 		$errorCode = json_last_error();
