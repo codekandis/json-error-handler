@@ -10,56 +10,67 @@ abstract class JsonErrorMessages
 {
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-none
 	 */
-	public const NONE = 'No error has occurred';
+	final public const string NONE = 'No error has occurred';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-ctrl-char
 	 */
-	public const DEPTH = 'The maximum stack depth has been exceeded';
+	final public const string CTRL_CHAR = 'Control character error, possibly incorrectly encoded';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-depth
 	 */
-	public const STATE_MISMATCH = 'Invalid or malformed JSON';
+	final public const string DEPTH = 'The maximum stack depth has been exceeded';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-inf-or-nan
 	 */
-	public const CTRL_CHAR = 'Control character error, possibly incorrectly encoded';
+	final public const string INF_OR_NAN = 'One or more NAN or INF values in the value to be encoded';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-invalid-property-name
 	 */
-	public const SYNTAX = 'Syntax error';
+	final public const string INVALID_PROPERTY_NAME = 'A property name that cannot be encoded was given';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-recursion
 	 */
-	public const UTF8 = 'Malformed UTF-8 characters, possibly incorrectly encoded';
+	final public const string RECURSION = 'One or more recursive references in the value to be encoded';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-state-mismatch
 	 */
-	public const RECURSION = 'One or more recursive references in the value to be encoded';
+	final public const string STATE_MISMATCH = 'Invalid or malformed JSON';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-syntax
 	 */
-	public const INF_OR_NAN = 'One or more NAN or INF values in the value to be encoded';
+	final public const string SYNTAX = 'Syntax error';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-unsupported-type
 	 */
-	public const UNSUPPORTED_TYPE = 'A value of a type that cannot be encoded was given';
+	final public const string UNSUPPORTED_TYPE = 'A value of a type that cannot be encoded was given';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-utf16
 	 */
-	public const INVALID_PROPERTY_NAME = 'A property name that cannot be encoded was given';
+	final public const string UTF16 = 'Malformed UTF-16 characters, possibly incorrectly encoded';
 
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
+	 * @see https://www.php.net/manual/en/json.constants.php#constant.json-error-utf8
 	 */
-	public const UTF16 = 'Malformed UTF-16 characters, possibly incorrectly encoded';
+	final public const string UTF8 = 'Malformed UTF-8 characters, possibly incorrectly encoded';
 }
