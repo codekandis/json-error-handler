@@ -1,6 +1,7 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\JsonErrorHandler;
 
+use CodeKandis\Types\BaseObject;
 use const JSON_ERROR_CTRL_CHAR;
 use const JSON_ERROR_DEPTH;
 use const JSON_ERROR_INF_OR_NAN;
@@ -18,7 +19,7 @@ use const JSON_ERROR_UTF8;
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
-abstract class JsonErrorCodes
+abstract class JsonErrorCodes extends BaseObject implements JsonErrorCodesInterface
 {
 	/**
 	 * @see https://www.php.net/manual/en/function.json-last-error.php#refsect1-function.json-last-error-returnvalues
