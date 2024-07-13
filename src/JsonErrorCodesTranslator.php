@@ -2,6 +2,7 @@
 namespace CodeKandis\JsonErrorHandler;
 
 use CodeKandis\ConstantsClassesTranslator\ConstantsClassesTranslator;
+use CodeKandis\ConstantsClassesTranslator\ConstantsClassNotFoundExceptionInterface;
 
 /**
  * Represents a JSON error codes translator.
@@ -12,6 +13,7 @@ class JsonErrorCodesTranslator extends ConstantsClassesTranslator
 {
 	/**
 	 * Constructor method.
+	 * @throws ConstantsClassNotFoundExceptionInterface The input constants class does not exist.
 	 */
 	public function __construct()
 	{
