@@ -1,7 +1,7 @@
 <?php declare( strict_types = 1 );
 namespace CodeKandis\JsonErrorHandler;
 
-use JsonException as JsonExceptionOrigin;
+use JsonException as OriginJsonException;
 use Override;
 
 /**
@@ -9,7 +9,7 @@ use Override;
  * @package codekandis/json-error-handler
  * @author Christian Ramelow <info@codekandis.net>
  */
-class JsonException extends JsonExceptionOrigin implements JsonExceptionInterface
+class JsonException extends OriginJsonException implements JsonExceptionInterface
 {
 	/**
 	 * @inheritDoc
